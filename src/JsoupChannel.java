@@ -5,10 +5,12 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class JsoupText {
+public class JsoupChannel {
 	private static final String html = "http://toutiao.com/";
 
 	/**
+	 * 抓取频道和频道地址
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -21,30 +23,13 @@ public class JsoupText {
 			System.out.println(docitem);
 			Elements link = docitem.select("a");
 			for (Element element : link) {
-				String absHref = element.attr("abs:href");
-				System.out.println(absHref);
-			}
-
-			for (Element element : docitem) {
 				String title = element.text();
 				System.out.println(title);
-
-			}
-
-			Elements docTitle = document.select("li.item clearfix ");
-
-			System.out.println(docTitle.size());
-			Elements linktitle = docTitle.select("a");
-			for (Element element : linktitle) {
 				String absHref = element.attr("abs:href");
 				System.out.println(absHref);
-			}
-
-			for (Element element : linktitle) {
-				String title = element.text();
-				System.out.println(title);
 
 			}
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,6 +37,6 @@ public class JsoupText {
 
 	}
 
-	// ��ȡ�Ƽ�
+	
 
 }
